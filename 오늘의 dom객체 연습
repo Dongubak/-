@@ -1,0 +1,155 @@
+                                                      첫번째 연습 html 파일
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="m1.css">
+</head>
+<body>
+    <div class="div1">
+        <img src="랄로.jfif" alt="">
+        <button id="lookclosely" onclick="opde()">상세설명보기</button>
+
+        <section class="detail">
+            <h1>랄로</h1>
+            <p>랄로는 코인하는 노인이다.</p>
+            <button id="closedetail" onclick="clde()">상세설명닫기</button>
+        </section>
+    </div>
+
+
+    <script src="m1.js"></script>
+</body> 
+</html>
+
+                                                      첫번째 연습 javascript
+var $btnclosely = document.querySelector("#lookclosely");
+var $detail = document.querySelector(".detail");
+var $btnclosedetail = document.querySelector("#close");
+
+
+function clde() {
+    $btnclosely.style.display = "block";
+    $detail.style.display = "none";
+}
+
+function opde() {
+    $btnclosely.style.display = "none";
+    $detail.style.display = "block"
+}
+
+                                                      첫번째 연습 css
+                                                      
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: lightblue;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 800px;
+    margin: 50px auto;  
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+
+}
+
+.div1 img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+#lookclosely {
+    transform: translateY(-100px);
+    opacity: 0.5;
+    padding: 5px;
+}
+
+section.detail {
+    border: 1px solid black;
+    display: none;
+}
+
+                                                      두번째 연습 html파일
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="m2.css">
+</head>
+<body>
+    <section class="wrap">
+        <h1>DOM객체</h1>
+        <button class="detailbtn">상세설명보기</button>
+        <section class="detailsection">
+            <p>Document Object Model</p>
+            <button class="closedetailbtn">상세설명닫기</button>
+        </section>
+    </section>
+
+
+<script src="m2.js"></script>
+</body>
+</html>
+                                                      두번째 연습 css파일
+section.wrap {
+    border: 1px solid black;
+}
+
+
+section.detailsection {
+    border: 1px solid black;
+}
+
+section.detailsection {
+    display: none;
+}                                                      
+                                                      
+                                                      두번째 연습 javascript파일
+var $detailbtn = document.querySelector(".detailbtn");
+
+var $detailsection = document.querySelector(".detailsection");
+
+var $closedetailbtn = document.querySelector(".closedetailbtn");
+
+$detailbtn.onclick = showdetail;
+$closedetailbtn.onclick = closedetail;
+
+function showdetail() {
+    $detailsection.style.display = "block"; 
+    $detailbtn.style.display = "none";
+}
+
+function closedetail() {
+    $detailsection.style.display = "none";
+    $detailbtn.style.display = "block";
+}                                                      
+                                                     
+                                                   
