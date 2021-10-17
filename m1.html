@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>문서를 열면 팝업이 열립니다.</p>
+
+    <script>
+        var popUp = window.open(
+            "m2.html",
+            "popup",
+            "width=300, height=400, top=320, left=810"
+        );
+
+        popUp.opener = self;
+    </script>
+</body>
+</html>
