@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM을 공부합시다.</h1>
+    <a href="#" onclick="f1(); this.onclick='';" class="more">더보기</a>
+    
+    <div class="info">
+        <a href="" class="exit">닫기</a>
+    </div>
+
+
+
+    <script>
+
+        function f1() {
+            var createli = document.createElement("li");
+            var creattext = document.createTextNode("DOM객체는 document object model 의 줄임말입니다.");
+            var moreanchor = document.querySelector(".more");
+            var exitanchor = document.querySelector(".exit");
+            var info = document.querySelector(".info");
+
+
+            createli.appendChild(creattext);
+            info.appendChild(createli);
+            moreanchor.style.display = "none";
+            info.style.display = "block";
+
+            
+        }
+
+        function f2() {
+            var info = document.querySelector(".info");
+            var moreanchor = document.querySelector(".more");
+
+            moreanchor.style.display = "block";
+            info.style.display = "none";
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <img src="apple1.jpg" alt="" class="mainimg">
+    </div>
+
+    <div class="bottom">
+        <img src="apple1.jpg" alt="" class="apple">
+        <img src="peach1.jpg" alt="" class="peach">
+        <img src="cherry1.jpg" alt="" class="cherry">
+
+    </div>
+
+    <script>
+        const $apple = document.querySelector(".apple");
+        const $peach = document.querySelector(".peach");
+        const $cherry = document.querySelector(".cherry");
+        const $maindiv = document.querySelector(".mainimg");
+
+        function changePic() {
+            var newPic = this.src;
+            $maindiv.setAttribute(
+                "src", newPic
+            );
+        }
+
+        $apple.onclick = changePic;
+        $peach.onclick = changePic;
+        $cherry.onclick = changePic;
+
+    </script>
+</body>
+
+
+</html>

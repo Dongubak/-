@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="랄로1.jpg" alt="" class="mainimg">
+    </div>
+
+    <script>
+        const $mainimg = document.querySelector(".mainimg");
+        $mainimg.addEventListener("mouseover",changePic1);
+        $mainimg.addEventListener("mouseout", changePic2);
+
+        function changePic1 () {
+            $mainimg.src = "랄로2.jpg";
+        }
+
+        function changePic2() {
+            $mainimg.src = "랄로1.jpg";
+        }
+
+    </script>
+</body>
+</html>
