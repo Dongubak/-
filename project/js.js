@@ -1,32 +1,75 @@
-const obj1 = new Object();
-///OrdinaryObjectCreate호출
-///빈객체 생성후 인수로 전달받은 프로퍼티 저장
-///인수로 전달된 프로토타입을 생성된 객체의 [[prototype]] 내부슬롯에 바인딩
-///생성된 객체 반환
-
-const obj = { x: 1};
-
-console.log(obj.constructor === Object);
-///->단순히 obj의 constructor가 Object라는 말이 아닌
-///obj.prototype으로부터 상속받은 constructor 프로퍼티를
-///obj가 사용한 것이다.
+function init() {
+    const $btn = document.querySelector("#input__btn");
+    $btn.addEventListener("click", function(event) {
+        event.preventDefault();
+        secinit();
 
 
-function Person(name) {
-    this.name = name;
+    });
 }
 
-Person.prototype.sayHi = function() {
-    console.log(`Hello ${this.name}`);
-};
+function secinit() {
+    const $input_2 = document.querySelector("#input__2").value;
+    const $input_3 = document.querySelector("#input__3").value;
+    const $input_4 = document.querySelector("#input__4").value;
+    console.log($input_4);
+    console.log("secinit");
+    ///원금은 필수 임
+    ///1.이율을 입력하지않은경우
+    ///2.횟수를 입력하지 않은 경우
+    ///3.목표금액을 입력하지 않은 경우
+    if($input_4 == "") {
+        nonInput4();
+    } else {
+        if($input_2 == "") {
+            nonInput2();
+        }
 
-const person1 = new Person('Lee');
-const person2 = new Person('Kim');
+    }
 
-person1.sayHi();
-person2.sayHi();
+    /*
+    if($input_2.value == undefined) {
+        nonInput2();
+    }
+    */
 
-console.log(person1.__proto__.__proto__ === Object.prototype);
+}
 
-console.log(person1.__proto__.hasOwnProperty('sayHi'));
-///프로토타입에 프로퍼티를 추가한후 상속받았다는 증거
+
+
+function nonInput4() {
+    const $input_1 = parseInt(document.querySelector("#input__1").value);
+    const $input_2 = parseFloat(document.querySelector("#input__2").value);
+    const $input_3 = parseInt(document.querySelector("#input__3").value);
+    console.log("nonInput4");
+    const $input_list = document.querySelector("#input__list");
+    const result = $input_1*(1+$input_2)**$input_3;
+    const $input_text = document.createTextNode(result);
+    $input_list.appendChild($input_text);
+}
+
+
+function nonInput2() {  
+    const $input_1 = parseInt(document.querySelector("#input__1").value);
+    const $input_3 = parseInt(document.querySelector("#input__3").value);
+    const $input_4 = parseInt(document.querySelector("#input__4").value);
+    console.log("nonInput2");
+    let i = 1;
+    let result;
+    while(true) {
+        result = $input_1*(1+i*0.001)**$input_3;
+        if(i === 1000) {
+            alert("이율이 100%이상입니다.");
+            break;
+        }
+
+        if($input_4 < result) {
+            break;
+        }
+        i++;
+        console.log(result);
+    }
+}
+
+
+init();
