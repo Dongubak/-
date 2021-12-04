@@ -24,13 +24,11 @@ function nonInput2() {
     const container_3 = parseInt(document.querySelector("#container__3").value);
     const container_4 = parseInt(document.querySelector("#container__4").value);
     console.log("nonInput2");
-    const $container__ul = document.querySelector("#container2__ul");
+    
     let i = 1;
     let result;
     
     while(true) {
-        const $Cli = document.createElement("li");
-        const $Ctext = document.createTextNode('');
         result = container_1*(1+i*0.001)**container_3;
         if(i === 1000) {
             alert("이율이 100%이상입니다.");
@@ -38,15 +36,12 @@ function nonInput2() {
         }
 
         if(container_4 < result) {
-            $Ctext.textContent = result;
-            $Cli.appendChild($Ctext);
-            $container__ul.appendChild($Cli);
+            addLi(result);
             break;
         }
+        addLi(result);
         i++;
-        $Ctext.textContent = result;
-        $Cli.appendChild($Ctext);
-        $container__ul.appendChild($Cli);
+        
     }
 }
 function nonInput3() {
@@ -59,12 +54,12 @@ function nonInput3() {
     while(true) {
         result = container_1*(1+container_2)**i;
         if(container_4 < result) {
-            console.log(result);
+            addLi(result);
             console.log("넘는 순간의", i);
             break;
         }
         i++;
-        console.log(result);
+        addLi(result);
     }
 }
 function nonInput4() {
@@ -73,6 +68,27 @@ function nonInput4() {
     const container_3 = parseInt(document.querySelector("#container__3").value);
     console.log("nonInput4");
     const result = container_1*(1+container_2)**container_3;
-    console.log(result);
+    addLi(result);
 }
 init();
+
+function addLi(value) {
+    let container2__ul = document.querySelector("#container2__ul");
+    let createText = document.createTextNode(value);
+    let createLi = document.createElement("li");
+
+    createLi.appendChild(createText);
+    container2__ul.appendChild(createLi);
+}
+
+function clear() {
+    let c1 = document.querySelector("#containter2__ul").childNodes;
+    let i = 0;
+    while(true) {
+        document.querySelector("#container2__ul").removeChild(c1[i]);
+        i++;
+
+        if(c1 === 0) break;
+    }
+    ///////clear 만지기
+}
